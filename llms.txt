@@ -1,0 +1,34 @@
+# fecklesspleb-actors-mcp
+
+> MCP server (stdio, Node.js) that lets AI agents run fecklesspleb's public Apify Actors and get the dataset items back in the tool result: website SEO audits, page metadata, sitemap URLs, Hacker News search and "Who is hiring?" jobs, remote job feeds, and company job boards on Greenhouse, Lever, Ashby, Workday and other ATSs. Runs are billed per result to the user's own Apify account, and each call has a dollar cap (maxCostUsd, default $0.25). The server and the Actors are written and maintained by fecklesspleb. Not affiliated with Apify or any job board or ATS vendor.
+
+Install: `npx -y fecklesspleb-actors-mcp` with `APIFY_TOKEN` set. 14 tools: the `core` and `jobs` toolsets (10 tools) are on by default; the `web` toolset (4 tools) is opt-in with `FECKLESSPLEB_TOOLSETS=all`.
+
+## Docs
+
+- [README](https://github.com/fecklesspleb/actors-mcp/blob/main/README.md): tools, prices, setup, configuration, limits
+- [server.json](https://github.com/fecklesspleb/actors-mcp/blob/main/server.json): MCP Registry metadata
+
+## Core tools
+
+- [seo_audit_website / website-seo-audit](https://apify.com/fecklesspleb/website-seo-audit): on-page SEO issues and a 0-100 score per page, $0.003 per page
+- [extract_website_metadata / website-metadata-extractor](https://apify.com/fecklesspleb/website-metadata-extractor): title, meta, Open Graph, Twitter card, JSON-LD, feeds per URL, $0.001 per URL
+- [extract_sitemap_urls / sitemap-extractor](https://apify.com/fecklesspleb/sitemap-extractor): every sitemap URL with lastmod, $0.0002 per URL
+- [search_hacker_news / hacker-news-scraper](https://apify.com/fecklesspleb/hacker-news-scraper): HN stories and comments, or "Who is hiring?" jobs, $0.00015 per item
+- [search_remote_jobs / remote-jobs-aggregator](https://apify.com/fecklesspleb/remote-jobs-aggregator): Remote OK, We Work Remotely and Jobicy in one list, $0.001 per job
+
+## Job board tools
+
+- [greenhouse_jobs](https://apify.com/fecklesspleb/greenhouse-jobs-scraper): $0.001 per job
+- [lever_jobs](https://apify.com/fecklesspleb/lever-jobs-scraper): $0.001 per job
+- [ashby_jobs](https://apify.com/fecklesspleb/ashby-jobs-scraper): $0.001 per job
+- [workday_jobs](https://apify.com/fecklesspleb/workday-jobs-scraper): $0.002 per job
+- [ats_jobs](https://apify.com/fecklesspleb/ats-jobs-scraper): nine ATSs with one schema, $0.002 per job
+
+## Optional (web toolset, opt-in)
+
+- [crawl_website_to_markdown](https://apify.com/fecklesspleb/website-to-markdown-crawler): pages as Markdown, $0.0008 per page
+- [download_images](https://apify.com/fecklesspleb/bulk-image-downloader): images and files to Apify storage, $0.001 per file
+- [screenshot_website](https://apify.com/fecklesspleb/website-screenshot): page screenshots, $0.0008 per screenshot
+- [check_broken_links](https://apify.com/fecklesspleb/broken-link-checker): broken links and images, $0.003 per broken link
+- [Apify API: run Actor synchronously](https://docs.apify.com/api/v2/act-run-sync-get-dataset-items-post): the endpoint each tool calls

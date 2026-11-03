@@ -1,0 +1,58 @@
+{
+  "name": "fecklesspleb-actors-mcp",
+  "version": "0.1.0",
+  "description": "MCP server with 14 tools for fecklesspleb's Apify Actors: 10 on by default (SEO audits, page metadata, sitemaps, Hacker News, remote and ATS job boards) and 4 opt-in web tools.",
+  "mcpName": "io.github.fecklesspleb/actors-mcp",
+  "license": "MIT",
+  "author": "fecklesspleb",
+  "type": "module",
+  "bin": {
+    "fecklesspleb-actors-mcp": "dist/index.js"
+  },
+  "main": "dist/server.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "llms.txt"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fecklesspleb/actors-mcp.git"
+  },
+  "homepage": "https://github.com/fecklesspleb/actors-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/fecklesspleb/actors-mcp/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "apify",
+    "seo",
+    "sitemap",
+    "hacker-news",
+    "jobs",
+    "greenhouse",
+    "lever",
+    "ashby",
+    "workday"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && vitest run",
+    "snapshot-schemas": "node scripts/snapshot-schemas.mjs",
+    "prepublishOnly": "npm test",
+    "e2e": "node scripts/e2e.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "5.9.3",
+    "vitest": "4.1.12"
+  }
+}

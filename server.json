@@ -1,0 +1,52 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.fecklesspleb/actors-mcp",
+  "title": "fecklesspleb Apify Actors",
+  "description": "14 tools for fecklesspleb's Apify Actors: SEO, metadata, sitemaps, HN, jobs; 4 web tools opt-in.",
+  "repository": {
+    "url": "https://github.com/fecklesspleb/actors-mcp",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "fecklesspleb-actors-mcp",
+      "version": "0.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "APIFY_TOKEN",
+          "description": "Your Apify API token. Actor runs are billed to this Apify account per result.",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        },
+        {
+          "name": "FECKLESSPLEB_TOOLSETS",
+          "description": "Comma-separated toolsets: core, jobs, web, or all. Default: core,jobs.",
+          "isRequired": false,
+          "format": "string",
+          "default": "core,jobs"
+        },
+        {
+          "name": "APIFY_MAX_COST_USD",
+          "description": "Default spending cap per tool call, in USD.",
+          "isRequired": false,
+          "format": "number",
+          "default": "0.25"
+        },
+        {
+          "name": "APIFY_MAX_COST_CEILING_USD",
+          "description": "Highest per-call cap a tool call may request, in USD.",
+          "isRequired": false,
+          "format": "number",
+          "default": "5"
+        }
+      ]
+    }
+  ]
+}
